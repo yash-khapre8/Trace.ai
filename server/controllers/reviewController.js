@@ -93,10 +93,15 @@ const submitCode = async (req, res) => {
         });
     } catch (error) {
         console.error('Submit Code Error:', error);
+        console.error('Stack:', error.stack); // Log full stack trace
 
+        // Return actual error message in development for debugging
         res.status(500).json({
             success: false,
-            message: 'Server error during code submission',
+            message: process.env.NODE_ENV === 'development'
+                ? `Server error: ${error.message}`
+                : 'Server error during code submission',
+            error: error.message
         });
     }
 };

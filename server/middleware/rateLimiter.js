@@ -6,7 +6,7 @@ const rateLimit = require('express-rate-limit');
  */
 const aiReviewLimiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
-    max: 10, // Limit each user to 10 requests per window
+    max: 100, // Increased for development - limit each user to 100 requests per window
     message: {
         success: false,
         message: 'Too many review requests. Please try again in 15 minutes.',
