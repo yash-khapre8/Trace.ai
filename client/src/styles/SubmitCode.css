@@ -1,0 +1,112 @@
+.submit-container {
+  min-height: 100vh;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.submit-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.editor-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.editor-header h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.editor-controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.language-select {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  color: var(--text-primary);
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.language-select:focus {
+  outline: none;
+  border-color: var(--accent-neon-green);
+}
+
+.btn-reset {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-primary);
+  color: var(--text-secondary);
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-reset:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+}
+
+.btn-trace {
+  background: var(--accent-neon-green);
+  color: var(--bg-primary);
+  border: none;
+  padding: 12px 28px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s;
+}
+
+.btn-trace:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: var(--glow-green);
+}
+
+.btn-trace:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Result Section - Animated Entry */
+.result-section {
+  animation: slideUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .submit-content { padding: 20px; }
+  .editor-header { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .editor-controls { width: 100%; flex-wrap: wrap; }
+  .language-select, .btn-reset, .btn-trace { flex: 1; justify-content: center; }
+}
